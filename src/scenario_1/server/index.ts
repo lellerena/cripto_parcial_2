@@ -10,8 +10,11 @@ import { Server } from 'socket.io'
 import * as fs from 'fs'
 import crypto from 'crypto'
 
+// Load Diffie-Hellman parameters from a JSON file
+
+const paramsIndex = process.argv[2]
 const params = JSON.parse(fs.readFileSync('./parameters.json', 'utf8'))
-    .parameters[0]
+    .parameters[paramsIndex]
 const p = BigInt(params.p)
 const g = BigInt(params.g)
 
@@ -31,6 +34,10 @@ io.on('connection', (socket) => {
         g: g.toString(),
         serverPublicKey: serverPublicKey.toString()
     })
+
+    console.log('🔑 Clave pública del servidor:', serverPublicKey.toString())
+    console.log('🔑 Clave privada del servidor:', serverPrivateKey.toString())
+
 
     socket.on('client-public-key', (clientPubKeyStr: string) => {
         const clientPubKey = BigInt(clientPubKeyStr)

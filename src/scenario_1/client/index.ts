@@ -36,6 +36,8 @@ socket.on('dh-params', ({ p, g, serverPublicKey }) => {
     const sharedKey = generateSharedKey(pBig, serverPubKeyBig, clientPrivateKey)
     symKey = deriveSymmetricKey(sharedKey)
 
+    console.log('🔑 Clave pública del cliente:', clientPublicKey.toString())
+    console.log('🔑 Clave privada del cliente:', clientPrivateKey.toString())
     console.log('✅ Intercambio de clave completo. Puedes escribir mensajes:')
 
     startInputLoop()
