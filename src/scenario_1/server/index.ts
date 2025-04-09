@@ -35,8 +35,7 @@ io.on('connection', (socket) => {
         serverPublicKey: serverPublicKey.toString()
     })
 
-    console.log('🔑 Clave pública del servidor:', serverPublicKey.toString())
-    console.log('🔑 Clave privada del servidor:', serverPrivateKey.toString())
+    
 
 
     socket.on('client-public-key', (clientPubKeyStr: string) => {
@@ -44,6 +43,10 @@ io.on('connection', (socket) => {
         const sharedKey = generateSharedKey(p, clientPubKey, serverPrivateKey)
         const symKey = deriveSymmetricKey(sharedKey)
         clientSymmetricKeys.set(socket.id, symKey)
+
+        console.log('🔑 Clave pública del servidor:', serverPublicKey.toString())
+        console.log('🔑 Clave privada del servidor:', serverPrivateKey.toString())
+        console.log('🔑 Clave compartida:', sharedKey.toString())
 
         const nonce = crypto.randomBytes(12)
         const { ciphertext, tag } = encryptMessageChaCha20(
