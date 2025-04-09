@@ -1,0 +1,34 @@
+{
+    "name": "cripto_parcial_2",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "ts-node-dev --respawn --transpile-only src/diff1.ts",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "server": "ts-node-dev --respawn --transpile-only src/scenario_1/server/index.ts",
+        "client": "ts-node-dev --respawn --transpile-only src/scenario_1/client/index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@stablelib/chacha": "^2.0.1",
+        "@stablelib/random": "^2.0.1",
+        "express": "^5.1.0",
+        "socket.io": "^4.8.1",
+        "socket.io-client": "^4.8.1",
+        "tweetnacl": "^1.0.3",
+        "tweetnacl-util": "^0.15.1"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.1",
+        "@types/node": "^22.14.0",
+        "@types/socket.io": "^3.0.1",
+        "@types/socket.io-client": "^1.4.36",
+        "ts-node": "^10.9.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.8.3"
+    }
+}
