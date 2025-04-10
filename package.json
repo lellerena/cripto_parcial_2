@@ -10,7 +10,9 @@
         "client": "ts-node-dev --respawn --transpile-only src/scenario_1/client/index.ts",
         "server:2": "ts-node-dev --respawn --transpile-only src/scenario_2/server/index.ts",
         "client:2": "ts-node-dev --respawn --transpile-only src/scenario_2/client/index.ts",
+        "attacker": "ts-node-dev --respawn --transpile-only src/scenario_2/attacker/index.ts",
         "server:3": "ts-node-dev --respawn --transpile-only src/scenario_3/server/index.ts"
+
     },
     "keywords": [],
     "author": "",

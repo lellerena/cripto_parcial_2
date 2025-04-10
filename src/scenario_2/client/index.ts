@@ -12,7 +12,7 @@ const ecdh = crypto.createECDH('prime256v1')
 ecdh.generateKeys()
 const clientPublicKey = ecdh.getPublicKey()
 
-const socket = io('http://localhost:3000')
+const socket = io('http://localhost:4000')
 
 const rl = readline.createInterface({
     input: process.stdin,
